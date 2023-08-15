@@ -1,16 +1,16 @@
-import ReactDOM from 'react-dom/client';
+import {createPortal} from 'react-dom';
+
+const domElement = document.getElementById('react-portal-test');
 
 function App() {
-    return (
+    return (<>
+        <div></div>
         <div className="App">
-            {ReactDOM.createPortal(
-                <div className="modal">
-                    <p>This is part of the modal</p>
-                </div>,
-                document.getElementById('react-portal-test')
-            )}
+            {createPortal(<div className="modal">
+                <p>This is part of the modal</p>
+            </div>, domElement)}
         </div>
-    );
+    </>);
 }
 
 export default App;
